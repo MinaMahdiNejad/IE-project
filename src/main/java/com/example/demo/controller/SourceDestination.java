@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class SourceDestination {
     @GetMapping("/flight")
-    public String flight(){
+    public String flight1(){
         String page= """
                     <!DOCTYPE html>
                     <html lang="en">
