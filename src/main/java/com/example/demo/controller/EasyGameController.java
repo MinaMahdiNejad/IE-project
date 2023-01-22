@@ -6,163 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class EasyGameController {
-    @GetMapping("/flight")
-    public String flight() {
-        String page = """
-                    <!DOCTYPE html>
-                    <html lang="en">
-                    <head>
-                        <meta charset="UTF-8">
-                        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                        <link rel="stylesheet" href="TehranToMashhad.css">
-                        <title>TehranToMashhad</title>
-                        <link rel="icon" type="image/x-icon" href="favicon.ico"/>
-                    </head>
-                    <style>
-                        body {
-                        font-family: Tahoma, Geneva, sans-serif;
-                        /* direction: rtl; */
-                        font-size: 13px;
-                        }
-                        @font-face {
-                            font-family: 'Vazir-Regular-FD';
-                            src: url('http://example.com/fonts/Vazir-Regular-FD.eot');
-                            src: local('Vazir-Regular-FD'),
-                                 url('http://example.com/fonts/Vazir-Regular-FD.eot?#iefix') format('embedded-opentype'),
-                                 url('http://example.com/fonts/Vazir-Regular-FD.woff2') format('woff2'),
-                                 url('http://example.com/fonts/Vazir-Regular-FD.woff') format('woff'),
-                                 url('http://example.com/fonts/Vazir-Regular-FD.ttf') format('truetype'),
-                                 url('http://example.com/fonts/Vazir-Regular-FD.svg#Vazir-Regular-FD') format('svg');
-                            font-style: normal;
-                            font-weight: normal;
-                            font-display: swap;
-                        }
-                    </style>
-                    <body>
-                        <div class="row1">   <!--should be inter from left to right-->
-                            <div>
-                                <div class="select">
-                                    <p>
-                                    قیمت: 729,500 تومان
-                                    </p><br>
-                                    <button>انتخاب پرواز</button><br>
-                                    <p>
-                                        ظرفیت خالی: 10+ صندلی
-                                    </p><br>
-                                </div>
-                            </div>
-                                        
-                            <div class="box"></div>
-                                        
-                            <div class="inline">
-                                <div>
-                                    <p name="clock">8:15</p>
-                                    <p name="source"> + source +</p>
-                                </div>
-                                <div>
-                                    <========================
-                                </div>
-                                <div>
-                                    <p name="clock">6:50</p>
-                                    <p name="destination">+ destination +</p>
-                                </div>
-                            </div>
-                           
-                            <div class="photo">
-                                <span> &nbsp; &nbsp; &nbsp; هما</span>
-                                <img src="Iranair_logo.jpg" width="50" height="50"><br><br>
-                            </div>  
-                                        
-                        </div>
-                                        
-                        <div class="spacer"></div>
-                        <div class="row2">
-                            <div>
-                                <div class="select">
-                                    <p>
-                                    قیمت: 735,300 تومان
-                                    </p><br>
-                                    <button>انتخاب پرواز</button><br>
-                                    <p>
-                                        ظرفیت خالی: 9+ صندلی
-                                    </p><br>
-                                </div>
-                            </div>
-                                        
-                            <div class="box"></div>
-                                        
-                            <div class="inline">
-                                <div>
-                                    17:00 <br>
-                                    مشهد
-                                </div>
-                                <div>
-                                    <=======================
-                                </div>
-                                <div>
-                                    15:30 <br>
-                                    تهران
-                                </div>
-                            </div>
-                           
-                            <div class="photo">
-                                <span> سپهران</span>
-                                <img src="images.png" width="50" height="50"><br><br>
-                            </div> 
-                        </div>
-                                        
-                        <div class="spacer"></div>
-                        <div class="row3">
-                            <div>
-                                <div class="select">
-                                    <p>
-                                    قیمت: 751,500 تومان
-                                    </p><br>
-                                    <button>انتخاب پرواز</button><br>
-                                    <p>
-                                        ظرفیت خالی: 2+ صندلی
-                                    </p><br>
-                                </div>
-                            </div>
-                                        
-                            <div class="box"></div>
-                                        
-                            <div class="inline">
-                                <div>
-                                    17:15 <br>
-                                    مشهد
-                                </div>
-                                <div>
-                                    <=======================
-                                </div>
-                                <div>
-                                    16:00 <br>
-                                    تهران
-                                </div>
-                            </div>
-                           
-                            <div class="photo">
-                                <span>ماهان</span> &nbsp;
-                                <img src="mahan.jpg" width="50" height="50"><br><br>
-                            </div>
-                            
-                        </div>
-                        <div class="spacer"></div>
-                        <div class="spacer"></div>                 
-                                        
-                       
-                    </body>
-                    </html> """;
-        return page;
-    }
-    @GetMapping("/checkeasygame")
-    public String checkEasyGame(@RequestParam(value = "number",defaultValue = "default") String number1) {
-        String rst = "";
-        if(number1.equals("16"))
-            rst = "Correct";
-        else
-            rst = "Incorrect";
+
+    @GetMapping("/easygame")
+    public String easyGame() {
         String page = "<!DOCTYPE HTML>\n" +
                 "<html>\n" +
                 "    <head>\n" +
@@ -170,9 +16,39 @@ public class EasyGameController {
                 "        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n" +
                 "    </head>\n" +
                 "    <body>\n"+
-                "     <h1>" +rst+"</h1>"+
+                "     <h1>"+12 +" "+ 13 +" "+ 14 +" "+ 15 +" "+ "? </h1>"+
+                " <form action=\"http://127.0.0.1:8080/checkeasygame\" method=\"GET\" id=\"nameForm\">\n" +
+                "            <div>\n" +
+                "           <p>\n" +
+                "               <label for=\"nameField\">What is the next number?</label>\n" +
+                "                <input name=\"number\" id=\"nameField\">\n" +
+                "           </p>\n" +
+                "                <button>Send Number!</button>\n" +
+                "            </div>\n" +
+                "        </form>"+
                 "    </body>\n" +
                 "</html>";
         return page;
     }
+
+    @GetMapping("/checkeasygame")
+    public String checkEasyGame(@RequestParam(value = "number",defaultValue = "default") String number1) {
+        String m = "";
+        if(number1.equals("16"))
+            m = "Correct";
+        else
+            m = "Incorrect";
+        String page = "<!DOCTYPE HTML>\n" +
+                "<html>\n" +
+                "    <head>\n" +
+                "        <title>Your first Spring application</title>\n" +
+                "        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n" +
+                "    </head>\n" +
+                "    <body>\n"+
+//                "     <h1>hello every body</h1>"+
+                "    </body>\n" +
+                "</html>";
+        return page;
+    }
+
 }
